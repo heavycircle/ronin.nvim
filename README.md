@@ -3,6 +3,8 @@
 A dark, high-contrast Neovim theme inspired by a masked ronin aesthetic (bushido palette).
 Moonlit silver text on void-black backgrounds with crimson + teal accents.
 
+![Ronin Sample](https://github.com/user-attachments/assets/0fdaa519-51ca-43fe-871d-06992e963619)
+
 ## Install
 
 ### Using lazy.nvim
