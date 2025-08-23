@@ -70,7 +70,7 @@ function M.apply(p, opts)
   U.hl("@parameter",      { fg = p.dim })
 
   -- Telescope
-  U.hl("TelescopeNormal",       { fg = p.fg, bg = p.gray })
+  U.hl("TelescopeNormal",       { fg = p.red, bg = p.gray })
   U.hl("TelescopeBorder",       { fg = p.gray, bg = p.gray })
   U.hl("TelescopePromptNormal", { fg = p.fg, bg = p.gray })
   U.hl("TelescopeSelection",    { fg = p.bg, bg = p.fg })
