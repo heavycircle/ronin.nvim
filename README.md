@@ -2,7 +2,7 @@
 
 A dark [Neovim](https://github.com/neovim/neovim) theme written in Lua.
 
-![Ronin Sample](https://github.com/user-attachments/assets/0fdaa519-51ca-43fe-871d-06992e963619)
+![Ronin Sample](https://github.com/user-attachments/assets/7da2e094-63f1-4c07-ad09-7fc4303f628d)
 
 ## Features
 
