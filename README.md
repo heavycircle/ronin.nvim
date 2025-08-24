@@ -1,73 +1,82 @@
 # ronin.nvim — Masked Ronin colorscheme
 
-A dark, high-contrast Neovim theme inspired by a masked ronin aesthetic (bushido palette).
-Moonlit silver text on void-black backgrounds with crimson + teal accents.
+A dark [Neovim](https://github.com/neovim/neovim) theme written in Lua.
 
 ![Ronin Sample](https://github.com/user-attachments/assets/0fdaa519-51ca-43fe-871d-06992e963619)
+
+## Features
+
+- Support for the [latest](https://github.com/neovim/neovim/releases/tag/latest) Neovim features.
+- Terminal colors.
+- [Easy Configuration](https://github.com/heavycircle/dotfiles) with other applications.
+
+<details>
+<summary>Supported Plugins</summary>
+
+| **Plugin**                                                            | **Support**                                      |
+| --------------------------------------------------------------------- | ------------------------------------------------ |
+| [blink.cmp](https://github.com/saghen/blink.cmp)                      | [`gitsigns`](lua/ronin/plugins/blink.lua)        |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                       | [`gitsigns`](lua/ronin/plugins/cmp.lua)          |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)           | [`gitsigns`](lua/ronin/plugins/gitsigns.lua)     |
+| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)          | [`lualine`](lua/ronin/plugins/lualine.lua)       |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | [`telescope`](lua/ronin/plugins/telescope.lua)   |
+| [treesitter.nvim](https://github.com/nvim-treesitter/vnim-treesitter) | [`treesitter`](lua/ronin/plugins/treesitter.lua) |
+
+</details>
 
 ## Install
 
 ### Using lazy.nvim
+
 ```lua
-{ 
+{
   "heavycircle/ronin.nvim",
   lazy = false, priority = 1000,
-  opts = {
-    transparent = false, -- set true to keep terminal/GUI background
-    brighter_red = true, -- use a brighter crimson for accents
-    italics = { comments = true, keywords = true },
-  },
-  config = function(_, opts)
-    require("ronin").setup(opts)
-    vim.cmd.colorscheme("ronin")
-  end
+  opts = {},
 }
 ```
 
-### Using packer.nvim
-```lua
-use({
-  "heavycircle/ronin.nvim",
-  config = function()
-    require("ronin").setup({
-      transparent = false,
-      brighter_red = true,
-      italics = { comments = true, keywords = true },
-    })
-    vim.cmd.colorscheme("ronin")
-  end,
-})
-```
+### Using `vim.pack` (Neovim 0.12.0 - Nightly)
 
-### Using built-in `vim.pack.add()` (Neovim 0.10+)
 ```lua
-vim.pack.add({ { src = "https://github.com/heavycircle/ronin.nvim" } })
-require("ronin").setup({
-  transparent = false,
-  brighter_red = true,
-  italics = { comments = true, keywords = true },
+vim.pack.add({
+    { src = "https://github.com/heavycircle/ronin.nvim" }
 })
+
+require("ronin").setup()
 vim.cmd.colorscheme("ronin")
 ```
 
-## Options
+## Usage
+
 ```lua
-require("ronin").setup({
-  transparent = false,     -- use NONE for main background
-  brighter_red = true,     -- switch accent red (#A11212 -> #C01A1A for stronger glow)
-  italics = {
-    comments = true,
-    keywords = true,
-    strings  = false,
-  },
-  dim_inactive = false,    -- darker background for inactive windows
-})
+vim.cmd.colorscheme "ronin"
 ```
 
-## Integrations
-- LSP/diagnostics and Treesitter base groups
-- Telescope selections
-- Lualine theme `ronin` included: `require('lualine').setup({ options = { theme = 'ronin' } })`
+## Default Configuration
+
+```lua
+---@class ronin.Config
+M.defaults = {
+    transparent = false,                    -- Use a transparent background
+    styles = {
+        comments = { italic = true },       -- Comments are italic
+        keywords = { italic = true },       -- Functions are italic
+        functions = {},
+        variables = {},
+    },
+    plugins = {
+        all = false,                        -- Enable all plugin support with 'all = true'
+        lualine = true,                     -- Enable individual plugin support
+    }
+}
+```
+
+## Contributing
+
+*Pull requests are welcome.*
+
+Plugins that I don't use aren't on the priority list for me to do, so integrations of other plugins would be greatly appreciated!
 
 ---
 

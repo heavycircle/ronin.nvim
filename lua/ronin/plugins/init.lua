@@ -1,26 +1,27 @@
-local config = require "ronin.config"
 local util = require "ronin.util"
 
 local M = {}
 
 M.plugins = {
+    ["gitsigns.nvim"] = "gitsigns",
     ["telescope.nvim"] = "telescope",
     ["treesitter.nvim"] = "treesitter",
 }
 
----@param colors ColorScheme
+---@param colors Colorscheme
 ---@param opts ronin.Config
 function M.get(name, colors, opts)
     local mod = require("ronin.plugins." .. name)
     return mod.get(colors, opts)
 end
 
----@param colors ColorScheme
+---@param colors Colorscheme
 ---@param opts ronin.Config
 function M.setup(colors, opts)
     -- Base installation
     local groups = {
         base = true,
+        kinds = true,
     }
 
     -- Add everything

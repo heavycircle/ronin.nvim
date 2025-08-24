@@ -13,7 +13,7 @@ M.defaults = {
     },
     plugins = {
         all = false,
-        -- lualine = true,
+        lualine = true,
     }
 }
 

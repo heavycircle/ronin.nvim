@@ -18,8 +18,6 @@ function M.setup(opts)
     vim.o.termguicolors = true
     vim.g.colors_name = "ronin"
 
---    vim.notify('plugins: ' .. vim.inspect(plugins))
-
     -- Set all the colors
     for plugin, hl in pairs(plugins) do
         hl = type(hl) == "string" and { link = hl } or hl
